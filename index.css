@@ -294,3 +294,46 @@ footer{ padding-bottom: calc(10px + env(safe-area-inset-bottom)); } /* MDN env()
 .actions a {
   text-decoration: none;
 }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, .08);
+  color: var(--text);
+}
+
+.nav-links .icon-link {
+  font-size: 1.2rem;       
+  padding: 8px;            
+}
+
+.nav-links .icon-link:hover {
+  color: var(--accent);   
+}
+.nav-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.icon-link {
+  font-size: 1.2rem;
+  padding: 8px;
+  border-radius: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+.icon-link:hover {
+  color: var(--accent);
+  background: rgba(255, 255, 255, .08);
+}

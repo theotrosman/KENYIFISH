@@ -11,25 +11,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <header class="nav">
-  <div class="brand">KENYIFISH</div>
-  <div class="nav-links">
-    <a href="productos.html">Productos</a>
-    <a href="https://instagram.com/kenyifish" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://wa.me/541160152797" target="_blank" rel="noopener">WhatsApp</a>
-    <a href="ubicacion.html" class="link-ubicacion">Ubicación</a>
-  </div>
-</header>
+        <div class="brand">KENYIFISH</div>
+        <div class="nav-links">
+            <a href="productos.html" class="icon-link" title="Productos">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a href="nosotros.html" class="icon-link" title="Nosotros / Contacto">
+                <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="ubicacion.html" class="icon-link" title="Ubicación">
+                <i class="fa-solid fa-location-dot"></i>
+            </a>
+            <a href="https://wa.me/541160152797?text=Hola%2C%20vi%20su%20web%20y%20me%20gustaría%20consultar%20sobre%20sus%20productos.%20¿Podés%20ayudarme?"
+                target="_blank" rel="noopener" class="icon-link" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://instagram.com/kenyifish" target="_blank" rel="noopener" class="icon-link"
+                title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </header>
+
+
+
 
 
 
 
     <main class="hero">
-        <video id="bgVideo" playsinline autoplay muted loop></video>
+        <video id="bgVideo" playsinline autoplay muted loop preload="auto" poster="media/poster.jpg"></video>
         <div class="overlay" aria-hidden="true"></div>
 
         <section class="center">
@@ -107,5 +126,6 @@
 
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+<script src="js/main.js" defer></script>
 
 </html>
