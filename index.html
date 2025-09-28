@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KENYIFISH | Peceras, peces y más</title>
+    <meta name="description" content="Acuarios, estanques, peces, plantas e insumos. Consultá por WhatsApp." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header class="nav">
+  <div class="brand">KENYIFISH</div>
+  <div class="nav-links">
+    <a href="productos.html">Productos</a>
+    <a href="https://instagram.com/kenyifish" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://wa.me/541160152797" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="ubicacion.html" class="link-ubicacion">Ubicación</a>
+  </div>
+</header>
+
+
+
+
+    <main class="hero">
+        <video id="bgVideo" playsinline autoplay muted loop></video>
+        <div class="overlay" aria-hidden="true"></div>
+
+        <section class="center">
+            <span class="tag">Acuarios · Peces · Plantas · Insumos</span>
+            <h1>Todo para tu acuario</h1>
+            <p class="motto" id="motto">Asesoramiento experto y envío en el día</p>
+            <div class="actions">
+                <a class="btn primary"
+                    href="https://wa.me/541160152797?text=Hola%2C%20vi%20tu%20web%20y%20me%20gustaría%20consultar%20sobre%20tus%20productos.%20¿Podés%20ayudarme?"
+                    target="_blank" rel="noopener">
+                    Consultar por WhatsApp
+                </a>
+                <a class="btn ghost" href="productos.html">Ver productos</a>
+                <a class="btn ghost" href="nosotros.html">Nosotros</a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span>© <span id="year"></span> KENYIFISH</span>
+        <span>·</span>
+        <a href="mailto:kenyifish@hotmail.com?subject=Consulta%20desde%20sitio&body=Hola%2C%20tengo%20una%20consulta%20sobre%20sus%20productos."
+            target="_blank" rel="noopener">kenyifish@hotmail.com</a>
+        <span>·</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Av.+Avellaneda+3027+Virreyes+San+Fernando"
+            target="_blank" rel="noopener">
+            Av. Avellaneda 3027, Virreyes, San Fernando
+        </a>
+    </footer>
+</body>
+<script>
+    function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min }
+
+    (function initBgVideo() {
+        const video = document.getElementById('bgVideo');
+        const tryOrder = [1, 2, 3, 4, 5].sort(() => Math.random() - .5);
+        let attempt = 0;
+
+        function loadNext() {
+            if (attempt >= tryOrder.length) { console.warn('No se pudo cargar ningún video de fondo'); return }
+            const n = tryOrder[attempt++];
+            const srcMp4 = `fondoindex${n}.mp4`;
+            const srcWebm = `fondoindex${n}.webm`;
+
+            video.innerHTML = '';
+            const sWebm = document.createElement('source'); sWebm.src = srcWebm; sWebm.type = 'video/webm';
+            const sMp4 = document.createElement('source'); sMp4.src = srcMp4; sMp4.type = 'video/mp4';
+            video.appendChild(sWebm); video.appendChild(sMp4);
+
+            video.load();
+            video.play().catch(() => { });
+        }
+
+        video.addEventListener('error', loadNext, { once: false });
+        loadNext();
+    })();
+
+    (function rotatingMotto() {
+        const el = document.getElementById('motto');
+        const frases = [
+            'Asesoramiento experto y envío en el día',
+            'Acuarios, peces y plantas de calidad',
+            'Pedidos por WhatsApp en un toque'
+        ];
+        let i = 0;
+        setInterval(() => {
+            i = (i + 1) % frases.length;
+            el.style.animation = 'none';
+            void el.offsetHeight;
+            el.textContent = frases[i];
+            el.style.animation = '';
+        }, 6000);
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</html>
